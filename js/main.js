@@ -77,6 +77,17 @@
     sections.forEach(function (s) { so.observe(s); });
   }
 
+  /* ----- Auto-duplicate marquee group for seamless loop ----- */
+  var track = document.querySelector('.marquee-track');
+  if (track) {
+    var group = track.querySelector('.mq-group');
+    if (group) {
+      var clone = group.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    }
+  }
+
   /* ----- Footer year ----- */
   var year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
