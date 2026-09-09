@@ -1,7 +1,6 @@
 /* ==========================================================================
    Amit Kumar Singh — Portfolio
    Design system: editorial-academic (ui-ux-pro-max guided)
-   Palette derived from profile photo: cream paper, library green, terracotta
    ========================================================================== */
 
 :root {
@@ -158,9 +157,6 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
   border-radius: 999px; padding: 0.5rem 0.85rem;
 }
 .meta-chip svg { width: 13px; height: 13px; color: var(--accent); }
-.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 2.6rem 0 0; border-top: 1px solid var(--line); padding-top: 1.6rem; }
-.stat dd { font: 600 clamp(1.6rem, 3vw, 2.2rem)/1 var(--font-display); margin: 0 0 0.4rem; }
-.stat dt { font: 500 0.66rem/1.5 var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
 
 .portrait-wrap { position: relative; justify-self: center; width: min(100%, 420px); }
 .portrait-wrap::before {
@@ -186,6 +182,16 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
   padding: 0.5rem 0.95rem; white-space: nowrap;
   font: 600 0.66rem/1 var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft);
 }
+
+/* ---------- Hobbies: single inline line ---------- */
+.hobbies { margin-top: 2.2rem; padding-top: 1.3rem; border-top: 1px solid var(--line); display: flex; align-items: center; flex-wrap: wrap; gap: 0.7rem 1.1rem; }
+.hobbies-label { font: 600 0.7rem/1 var(--font-mono); letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
+.hobby-list { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; flex-wrap: wrap; gap: 0.7rem 0.9rem; }
+.hobby { display: inline-flex; align-items: center; gap: 0.5rem; font: 500 0.95rem/1 var(--font-body); color: var(--ink); transition: color 0.2s; }
+.hobby svg { width: 17px; height: 17px; flex: none; color: var(--accent); transition: transform 0.2s; }
+.hobby + .hobby { border-left: 1px solid var(--line); padding-left: 0.9rem; }
+.hobby:hover { color: var(--link); }
+.hobby:hover svg { transform: scale(1.15); }
 
 /* ---------- Marquee ---------- */
 .marquee { border-block: 1px solid var(--line); background: var(--bg-2); overflow: hidden; padding: 1rem 0; }
@@ -396,7 +402,6 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
   .portrait-wrap { margin-inline: auto; }
 }
 @media (max-width: 700px) {
-  .stats { grid-template-columns: repeat(2, 1fr); }
   .skills-grid { grid-template-columns: 1fr; }
   .pub { grid-template-columns: 1fr; gap: 0.4rem; }
   .t-date { margin-left: 0; }
@@ -407,38 +412,4 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
   .site-header, .marquee, .hero-cta, .theme-toggle, .menu-btn, .skip-link { display: none !important; }
   body { background: #fff; color: #000; }
   .t-card, .pub, .train, .ref { box-shadow: none !important; }
-}
-
-/* ---------- Hobbies: minimal inline strip ---------- */
-.hobbies {
-  margin-top: 2.4rem; padding-top: 1.4rem;
-  border-top: 1px solid var(--line);
-  display: flex; align-items: center; flex-wrap: wrap;
-  gap: 0.9rem 1.8rem;
-}
-.hobbies-label {
-  font: 600 0.7rem/1 var(--font-mono);
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--ink-soft);
-}
-.hobby-list {
-  list-style: none; margin: 0; padding: 0;
-  display: flex; align-items: center; flex-wrap: wrap;
-  gap: 0.6rem 1.6rem;
-}
-.hobby {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  font: 500 0.95rem/1 var(--font-body);
-  color: var(--ink);
-  transition: color 0.2s;
-}
-.hobby svg {
-  width: 17px; height: 17px; flex: none;
-  color: var(--accent);
-  transition: transform 0.2s;
-}
-.hobby:hover { color: var(--link); }
-.hobby:hover svg { transform: scale(1.15); }
-@media (max-width: 700px) {
-  .hobby-list { grid-template-columns: 1fr; }
 }
