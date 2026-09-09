@@ -409,20 +409,49 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
   .t-card, .pub, .train, .ref { box-shadow: none !important; }
 }
 
-/* ---------- Personal stats: flags & hobbies ---------- */
-.stats--personal { grid-template-columns: 1.25fr 0.75fr; gap: 1.5rem; align-items: start; }
-.stats--personal .stat dd { margin: 0.7rem 0 0; }
-.flag-row { display: flex; flex-wrap: wrap; gap: 0.45rem; }
-.flag {
-  display: inline-grid; place-items: center;
-  min-width: 40px; height: 34px; padding: 0 0.45rem;
-  border: 1px solid var(--line); background: var(--surface); border-radius: 9px;
-  transition: transform 0.2s, border-color 0.2s;
+/* ---------- Hobbies strip (ui-ux-pro-max: soft UI micro-interactions) ---------- */
+.hobbies { margin-top: 2.6rem; border-top: 1px solid var(--line); padding-top: 1.6rem; }
+.hobbies .eyebrow { margin-bottom: 1.1rem; }
+.hobby-list {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem;
 }
-.flag-row .flag { font: 700 1.05rem/1 var(--font-mono); letter-spacing: 0.04em; }
-.flag:hover { transform: translateY(-3px); border-color: var(--accent); }
-.hobby-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.hobby-chips .chip { font: 600 0.78rem/1.25 var(--font-body); color: var(--ink); }
+.hobby {
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; gap: 0.9rem;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  padding: 0.95rem 1.05rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.hobby::after {
+  content: ""; position: absolute; right: -34px; bottom: -60px;
+  width: 120px; height: 120px; border-radius: 50%;
+  background: radial-gradient(closest-side, var(--tint, var(--accent)), transparent 70%);
+  opacity: 0.12; pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.hobby:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+  border-color: color-mix(in srgb, var(--tint, var(--accent)) 45%, var(--line));
+}
+.hobby:hover::after { opacity: 0.22; transform: scale(1.15); }
+.hobby-icon {
+  flex: none; width: 46px; height: 46px; border-radius: 50%;
+  display: grid; place-items: center;
+  color: var(--tint-ink, var(--link));
+  background: color-mix(in srgb, var(--tint, var(--accent)) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--tint, var(--accent)) 35%, transparent);
+  transition: transform 0.25s ease;
+}
+.hobby:hover .hobby-icon { transform: rotate(-8deg) scale(1.08); }
+.hobby-icon svg { width: 22px; height: 22px; }
+.hobby-name { display: block; font: 600 1rem/1.2 var(--font-display); color: var(--ink); }
+.hobby-note { display: block; margin-top: 0.28rem; font: 500 0.68rem/1.4 var(--font-mono); letter-spacing: 0.06em; color: var(--ink-soft); }
+.hobby--travel { --tint: var(--accent);   --tint-ink: var(--link); }
+.hobby--photo  { --tint: var(--accent-2); --tint-ink: var(--accent-2); }
+.hobby--cook   { --tint: var(--gold);     --tint-ink: var(--gold); }
 @media (max-width: 700px) {
-  .stats--personal { grid-template-columns: 1fr; }
+  .hobby-list { grid-template-columns: 1cr; }
+  .hobby-list { grid-template-columns: 1fr; }
 }
