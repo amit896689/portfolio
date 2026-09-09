@@ -198,7 +198,7 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
   padding: 0.55rem 1.05rem;
   font: 600 0.72rem/1 var(--font-mono); letter-spacing: 0.08em; color: var(--ink-soft);
 }
-.mq-chip img { height: 22px; width: auto; max-width: 110px; object-fit: contain; }
+.mq-chip img { height: 24px; width: auto; max-width: 130px; object-fit: contain; }
 .mq-chip .mono {
   width: 24px; height: 24px; border-radius: 7px; flex: none;
   background: var(--primary); color: var(--bg);
@@ -250,11 +250,11 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
 .t-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
 .t-head { display: flex; align-items: flex-start; gap: 1rem; flex-wrap: wrap; }
 .logo-box {
-  flex: 0 0 auto; width: 54px; height: 54px; overflow: hidden;
+  flex: 0 0 auto; min-width: 54px; height: 54px; padding: 0 8px; overflow: hidden;
   border-radius: 12px; border: 1px solid var(--line); background: var(--bg);
-  display: grid; place-items: center;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
 }
-.logo-box img { max-width: 42px; max-height: 42px; object-fit: contain; }
+.logo-box img { max-width: 100px; max-height: 40px; width: auto; object-fit: contain; }
 .logo-mono { font: 700 0.66rem/1 var(--font-mono); color: var(--primary); letter-spacing: 0.02em; }
 .logo-box.has-img .logo-mono { display: none; }
 .t-role { font: 600 1.1rem/1.35 var(--font-display); margin: 0; }
@@ -373,7 +373,6 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
 .ref .ref-role { color: var(--ink-soft); font-size: 0.82rem; margin: 0 0 0.7rem; }
 .ref a { font-size: 0.85rem; color: var(--link); text-decoration: none; word-break: break-all; }
 .ref a:hover { text-decoration: underline; }
-.ref .ref-tel { font-size: 0.82rem; color: var(--ink-soft); display: block; margin-top: 0.3rem; }
 
 /* ---------- Footer ---------- */
 .site-footer { border-top: 1px solid var(--line); padding: 1.6rem 0; }
